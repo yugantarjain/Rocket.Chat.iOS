@@ -214,7 +214,6 @@
 // Chat Message Actions
 "chat.message.actions.info" = "消息通知";
 "chat.message.actions.react" = "增加操作";
-"chat.message.actions.block" = "拉黑用户";
 "chat.message.actions.report" = "报告信息";
 "chat.message.actions.edit" = "编辑";
 "chat.message.actions.copy" = "拷贝";
@@ -301,6 +300,8 @@
 "chat.info.item.no_topic" = "没有话题";
 "chat.info.item.description" = "描述";
 "chat.info.item.no_description" = "没有描述";
+"chat.info.item.announcement" = "Announcement"; // TODO
+"chat.info.item.no_announcement" = "No announcement"; // TODO
 "chat.info.item.members" = "成员";
 "chat.info.item.pinned" = "固定信息";
 "chat.info.item.starred" = "标记信息";

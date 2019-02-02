@@ -37,19 +37,32 @@ class ChannelActionsViewController: BaseViewController {
                 header = [ChannelInfoUserCellData(user: subscription.directMessageUser)]
             } else {
                 let hasDescription = !(subscription.roomDescription?.isEmpty ?? true)
+                let hasAnnouncement = !(subscription.roomAnnouncement?.isEmpty ?? true)
                 let hasTopic = !(subscription.roomTopic?.isEmpty ?? true)
 
-                header = [
-                    ChannelInfoBasicCellData(title: "#\(subscription.name)"),
-                    ChannelInfoDescriptionCellData(
+                header = [ChannelInfoBasicCellData(title: "#\(subscription.name)")]
+
+
+                if hasDescription {
+                    header?.append(ChannelInfoDescriptionCellData(
                         title: localized("chat.info.item.description"),
-                        descriptionText: hasDescription ? subscription.roomDescription : localized("chat.info.item.no_description")
-                    ),
-                    ChannelInfoDescriptionCellData(
+                        descriptionText: subscription.roomDescription
+                    ))
+                }
+
+                if hasAnnouncement {
+                    header?.append(ChannelInfoDescriptionCellData(
+                        title: localized("chat.info.item.announcement"),
+                        descriptionText: subscription.roomAnnouncement
+                    ))
+                }
+
+                if hasTopic {
+                    header?.append(ChannelInfoDescriptionCellData(
                         title: localized("chat.info.item.topic"),
-                        descriptionText: hasTopic ? subscription.roomTopic : localized("chat.info.item.no_topic")
-                    )
-                ]
+                        descriptionText: subscription.roomTopic
+                    ))
+                }
             }
 
             func title(for menuTitle: String) -> String {
